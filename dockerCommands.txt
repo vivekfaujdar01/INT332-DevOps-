@@ -1,0 +1,159 @@
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker --version
+Docker version 29.3.0, build 5927d80
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker info
+Client: Docker Engine - Community
+ Version:    29.3.0
+ Context:    rootless
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.31.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.1.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 3
+  Running: 3
+  Paused: 0
+  Stopped: 0
+ Images: 4
+ Server Version: 29.3.0
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: true
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+  /home/faujdar/.config/cdi
+  /run/user/1001/cdi
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: dea7da592f5d1d2b7755e3a161be07f43fad8f75
+ runc version: v1.3.4-0-gd6d73eb8
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  rootless
+  cgroupns
+ Kernel Version: 6.8.0-101-generic
+ Operating System: Zorin OS 17.3
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 16
+ Total Memory: 15.27GiB
+ Name: hp-pavilion-laptop-15-eg3xxx
+ ID: 8b0c863c-668b-4d29-b233-5cbeff2d6f26
+ Docker Root Dir: /home/faujdar/.local/share/docker
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+  ::1/128
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+
+WARNING: No cpu cfs quota support
+WARNING: No cpu cfs period support
+WARNING: No cpu shares support
+WARNING: No cpuset support
+WARNING: No io.weight support
+WARNING: No io.weight (per device) support
+WARNING: No io.max (rbps) support
+WARNING: No io.max (wbps) support
+WARNING: No io.max (riops) support
+WARNING: No io.max (wiops) support
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker history
+docker: 'docker history' requires 1 argument
+
+Usage:  docker history [OPTIONS] IMAGE
+
+Run 'docker history --help' for more information
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker history httpd
+IMAGE          CREATED       CREATED BY                                      SIZE      COMMENT
+10e58ed1b203   2 weeks ago   CMD ["httpd-foreground"]                        0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   EXPOSE map[80/tcp:{}]                           0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   COPY httpd-foreground /usr/local/bin/ # buil…   138B      buildkit.dockerfile.v0
+<missing>      2 weeks ago   STOPSIGNAL SIGWINCH                             0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   RUN /bin/sh -c set -eux;   savedAptMark="$(a…   32.5MB    buildkit.dockerfile.v0
+<missing>      2 weeks ago   ENV HTTPD_PATCHES=                              0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   ENV HTTPD_SHA256=94d7ff2b42acbb828e870ba29e4…   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   ENV HTTPD_VERSION=2.4.66                        0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   RUN /bin/sh -c set -eux;  apt-get install --…   5.65MB    buildkit.dockerfile.v0
+<missing>      2 weeks ago   WORKDIR /usr/local/apache2                      0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   RUN /bin/sh -c mkdir -p "$HTTPD_PREFIX"  && …   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   ENV PATH=/usr/local/apache2/bin:/usr/local/s…   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   ENV HTTPD_PREFIX=/usr/local/apache2             0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago   # debian.sh --arch 'amd64' out/ 'trixie' '@1…   78.6MB    debuerreotype 0.17
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker pull httpd 
+Using default tag: latest
+latest: Pulling from library/httpd
+Digest: sha256:96b1e8f69ee3adde956e819f7a7c3e706edef7ad88a26a491734015e5c595333
+Status: Image is up to date for httpd:latest
+docker.io/library/httpd:latest
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker images
+                                                                                                                                                                          i Info →   U  In Use
+IMAGE                          ID             DISK USAGE   CONTENT SIZE   EXTRA
+docker-apache-php:latest       5e204163abc8        509MB             0B    U   
+httpd:latest                   10e58ed1b203        117MB             0B        
+mysql:8.0                      081ade299f2e        764MB             0B    U   
+phpmyadmin/phpmyadmin:latest   0276a66ce322        571MB             0B    U   
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker ps 
+CONTAINER ID   IMAGE                   COMMAND                  CREATED        STATUS      PORTS                                                    NAMES
+60a3c63d943f   phpmyadmin/phpmyadmin   "/docker-entrypoint.…"   4 months ago   Up 5 days   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp                  phpmyadmin
+158e62683c92   docker-apache-php       "docker-php-entrypoi…"   4 months ago   Up 5 days   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp                  apache-php
+2fbe96bec578   mysql:8.0               "docker-entrypoint.s…"   4 months ago   Up 5 days   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED        STATUS      PORTS                                                    NAMES
+60a3c63d943f   phpmyadmin/phpmyadmin   "/docker-entrypoint.…"   4 months ago   Up 5 days   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp                  phpmyadmin
+158e62683c92   docker-apache-php       "docker-php-entrypoi…"   4 months ago   Up 5 days   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp                  apache-php
+2fbe96bec578   mysql:8.0               "docker-entrypoint.s…"   4 months ago   Up 5 days   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker image ls
+                                                                                                                                                                          i Info →   U  In Use
+IMAGE                          ID             DISK USAGE   CONTENT SIZE   EXTRA
+docker-apache-php:latest       5e204163abc8        509MB             0B    U   
+httpd:latest                   10e58ed1b203        117MB             0B        
+mysql:8.0                      081ade299f2e        764MB             0B    U   
+phpmyadmin/phpmyadmin:latest   0276a66ce322        571MB             0B    U   
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker run httpd echo "hello docker"
+hello docker
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker ps
+CONTAINER ID   IMAGE                   COMMAND                  CREATED        STATUS      PORTS                                                    NAMES
+60a3c63d943f   phpmyadmin/phpmyadmin   "/docker-entrypoint.…"   4 months ago   Up 5 days   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp                  phpmyadmin
+158e62683c92   docker-apache-php       "docker-php-entrypoi…"   4 months ago   Up 5 days   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp                  apache-php
+2fbe96bec578   mysql:8.0               "docker-entrypoint.s…"   4 months ago   Up 5 days   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker run - -name givenname httpd echo "hello"
+docker: invalid reference format
+
+Run 'docker run --help' for more information
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker run --name givenname httpd echo "hello"
+hello
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker ls -a
+unknown shorthand flag: 'a' in -a
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS                      PORTS                                                    NAMES
+ff186f9551a9   httpd                   "echo hello"             12 seconds ago   Exited (0) 12 seconds ago                                                            givenname
+29c77a7572b1   httpd                   "echo 'hello docker'"    3 minutes ago    Exited (0) 3 minutes ago                                                             eager_edison
+60a3c63d943f   phpmyadmin/phpmyadmin   "/docker-entrypoint.…"   4 months ago     Up 5 days                   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp                  phpmyadmin
+158e62683c92   docker-apache-php       "docker-php-entrypoi…"   4 months ago     Up 5 days                   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp                  apache-php
+2fbe96bec578   mysql:8.0               "docker-entrypoint.s…"   4 months ago     Up 5 days                   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql
+faujdar@hp-pavilion-laptop-15-eg3xxx:~$ 
+
