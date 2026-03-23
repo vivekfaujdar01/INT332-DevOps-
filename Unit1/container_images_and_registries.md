@@ -64,3 +64,14 @@ While tags are mutable (the image associated with `ubuntu:latest` changes over t
 1.  **Build:** A developer writes a `Dockerfile` and runs `docker build` (or similar). This creates the localized image layers on their machine.
 2.  **Push:** They run `docker push registry.example.com/myapp:v1`. The engine checks which layers the registry already has. It only uploads the new, unique layers to the registry.
 3.  **Pull:** A Kubernetes node needs to run the application. It executes a `containerd` command to pull the image. The node authenticates with the registry, checks its local cache, and downloads only the layers it is missing. Once assembled via the UnionFS, the container starts.
+
+---
+
+## Relevant Docker Commands
+
+*   **`docker pull <image>`**: Pulls a container image or a repository from a registry (e.g., Docker Hub) to your local machine.
+*   **`docker push <image>`**: Pushes an image or a repository from your local machine up to a registry.
+*   **`docker build -t <tag> .`**: Builds a new Docker image from a `Dockerfile` located in the current directory (`.`), and tags it with a specific name/version.
+*   **`docker images`** or **`docker image ls`**: Lists all the container images currently downloaded and stored on your local machine.
+*   **`docker history <image>`**: Shows the history (the layers) of an image, displaying how it was built step-by-step.
+*   **`docker rmi <image>`**: Removes one or more images from your local machine.

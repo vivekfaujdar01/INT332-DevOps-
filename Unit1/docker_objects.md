@@ -49,3 +49,17 @@ Because containers are ephemeral, any important data (like a database’s actual
 *   **Independently Managed:** Unlike a "bind mount" (which relies on the specific host OS folder structure), volumes are managed entirely by the Docker daemon itself (on Linux, usually inside `/var/lib/docker/volumes/`). This makes volumes completely independent of the host system's specific file hierarchy.
 *   **Data Survival:** When you delete a container, the volume it was attached to is *not* deleted. The data survives. You can later spin up a brand new container (perhaps built from an updated image) and attach the exact same volume to it, picking up right where the old container left off.
 *   **Sharing State:** Multiple containers can mount the exact same volume simultaneously, allowing them to share read/write access to a common pool of persistent data.
+
+---
+
+## Relevant Docker Commands
+
+*   **`docker ps`** (or `docker container ls`): Lists all currently running containers.
+*   **`docker ps -a`**: Lists all containers, including those that are stopped or have exited.
+*   **`docker run <image>`**: Creates and starts a new container from a specified image.
+*   **`docker start <container>`**: Starts one or more stopped containers without recreating them.
+*   **`docker stop <container>`**: Gracefully stops one or more running containers.
+*   **`docker rm <container>`**: Permanently removes one or more stopped containers.
+*   **`docker network create <network>`**: Creates a new, isolated Docker network.
+*   **`docker network ls`**: Lists all networks managed by the Docker daemon.
+*   **`docker network connect <network> <container>`**: Connects a running container to an existing network.

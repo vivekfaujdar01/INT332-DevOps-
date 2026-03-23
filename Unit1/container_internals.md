@@ -59,3 +59,12 @@ Key resources managed by cgroups include:
 *   **PIDs (Process IDs):** Limits the maximum number of processes that can be created within a cgroup. This is incredibly useful for preventing "fork bombs" inside a container from bringing down the entire host node by exhausting the system's PID table limit.
 
 **In Summary:** A low-level **runtime** uses **namespaces** to give the process an isolated view of the world and uses **cgroups** to restrict how much of the physical world (hardware) the process is allowed to consume.
+
+---
+
+## Relevant Docker Commands
+
+*   **`docker run --cpus=<value> --memory=<value> <image>`**: Runs a container while applying cgroup resource limits. For example, `--cpus=0.5` restricts the container to half a CPU core, and `--memory=512m` limits its RAM usage to 512 Megabytes.
+*   **`docker inspect <container>`**: Returns detailed, low-level JSON information about a Docker object. You can use it to see the specific namespace and cgroup configurations applied to a running container.
+*   **`docker stats`**: Displays a live, continuously updating stream of resource usage statistics (CPU, memory, net I/O, block I/O) for all running containers, reflecting the limits enforced by cgroups.
+*   **`docker top <container>`**: Displays the running processes *inside* a specific container, showcasing the PID namespace isolation at work.

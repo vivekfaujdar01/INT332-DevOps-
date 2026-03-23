@@ -50,3 +50,12 @@ A Docker registry is a storage and distribution system for named Docker images.
 Docker Hub is the world’s largest public registry, managed directly by Docker Inc.
 *   **The Default Location:** When you install Docker, it is configured by default to look for images on Docker Hub. If you run `docker pull ubuntu`, your daemon reaches out to Docker Hub to download the official Ubuntu image.
 *   **The Ecosystem's Heart:** It hosts thousands of official images (verified and maintained by the software creators, e.g., Node.js, Python, PostgreSQL, Nginx) alongside millions of community-contributed images. It is the starting point for nearly all containerized workflows.
+
+---
+
+## Relevant Docker Commands
+
+*   **`docker version`**: Unlike `docker --version`, this command shows detailed version information for *both* the Docker Client (CLI) and the Docker Server (Daemon), confirming they can communicate successfully over the API.
+*   **`docker login`**: Authenticates the Docker client with a container registry (defaults to Docker Hub). This creates a credential file so you can pull private images or push your own images.
+*   **`docker logout`**: Logs out the client from a container registry and removes your stored credentials.
+*   **`docker search <term>`**: Queries the Docker Hub (or configured registry) directly from your terminal to find images matching the search term, displaying their names, descriptions, and star counts.

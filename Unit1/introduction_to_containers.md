@@ -31,3 +31,11 @@ Containers have become a fundamental pillar of modern DevOps practices, seamless
 3. **Microservices Architecture:** Containers are the ideal vehicle for microservices. They allow large, monolithic applications to be broken down into smaller, independent services that can be developed, deployed, and scaled independently.
 4. **Improved Resource Utilization and Scalability:** Unlike traditional virtual machines (VMs) that require a full guest operating system, containers share the host OS kernel. This makes them incredibly lightweight, allowing teams to run many more containers on a given hardware configuration and to start them up almost instantly to meet rapid spikes in demand.
 5. **Infrastructure as Code (IaC):** Container definitions (like Dockerfiles) and orchestration configurations (like Kubernetes manifests) are written in code. This allows infrastructure to be version-controlled, reviewed, and deployed just like application code.
+
+---
+
+## Relevant Docker Commands
+
+*   **`docker --version`**: Shows the installed version of Docker on your system, verifying that the CLI is available.
+*   **`docker info`**: Displays rich, system-wide information about your Docker installation, including the number of containers/images, the storage driver, and kernel versions.
+*   **`docker run hello-world`**: A classic verification command. It pulls a minimal test image from Docker Hub, runs it in a container, prints a confirmation message, and then exits, proving that the runtime is functioning perfectly.

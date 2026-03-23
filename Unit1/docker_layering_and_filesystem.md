@@ -63,3 +63,14 @@ While Copy-on-Write is brilliant for preserving image integrity, it introduces p
 If your application does a lot of heavy I/O—like a busy PostgreSQL database constantly rewriting large data files—the constant "copying up" of files into the container's R/W layer will cause severe performance degradation. Furthermore, increasing the size of the container's R/W layer makes the container heavier on disk.
 
 This is exactly why you use **Docker Volumes** for databases or heavy logs. A volume completely bypasses the UnionFS and Copy-on-Write mechanism, writing directly to the host machine's filesystem at native speeds.
+
+---
+
+## Relevant Docker Commands
+
+*   **`docker diff <container>`**: Inspects changes (additions, modifications, deletions) made to files or directories on a container's topmost read-write filesystem compared to the underlying image.
+*   **`docker volume create <volume>`**: Explicitly creates a new named volume on the host system to be used for persistent data.
+*   **`docker volume ls`**: Lists all Docker volumes currently managed by the local Docker daemon.
+*   **`docker volume inspect <volume>`**: Displays detailed information about a volume, including its exact mount point on the host filesystem.
+*   **`docker volume rm <volume>`**: Permanently deletes a Docker volume and all the persistent data within it.
+*   **`docker run -v <volume_name>:<container_path> <image>`** (or `--mount`): Runs a container and mounts a volume into its filesystem, bypassing the UnionFS for that specific directory path.
