@@ -6,7 +6,7 @@ While containers themselves are built upon foundational Linux kernel features, D
 
 ## 1. Introduction to Docker
 
-**Docker** is an open-source platform that enables developers to build, deploy, run, update, and manage containers. 
+**Docker** is a containerization platform that allows developers to package an application and its dependencies into lightweight, portable containers that run consistently across different computing environments. 
 
 Before Docker, utilizing container technologies (like LXC) was complex and required deep Linux administrative knowledge. Docker solved this by providing a unified toolset and a simple, developer-friendly interface that abstracted away the underlying complexity.
 

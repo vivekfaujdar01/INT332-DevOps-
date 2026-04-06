@@ -6,7 +6,7 @@ When you interact with the Docker daemon, you are creating, viewing, and managin
 
 ## 1. Images
 
-An **image** is a read-only template containing the instructions necessary for creating a Docker container. It is the blueprint of your application environment.
+A **Docker image** is a read-only, executable software package that contains all the files, libraries, dependencies, and configuration required to run an application inside a container. It serves as the template from which containers are created.
 
 *   **Composition:** An image packages everything your application needs to run: the application code, the runtime (like Node.js or Python), necessary system tools, libraries, and default configuration settings.
 *   **Creation:** Images are usually defined using a `Dockerfile`. A `Dockerfile` is a simple text file containing a list of commands (like `FROM ubuntu`, `RUN apt-get install python`, `COPY . /app`). Each command in the file creates a distinct "layer."
@@ -17,7 +17,7 @@ An **image** is a read-only template containing the instructions necessary for c
 
 ## 2. Containers
 
-A **container** is a runnable, living instance of an image. If the image is the blueprint, the container is the house built from that blueprint.
+A **Docker container** is a lightweight, isolated, and runnable instance of a Docker image that includes everything needed to execute an application, using the host system’s kernel while remaining logically segregated from other containers.
 
 *   **Lifecycle:** You use the Docker client to `run`, `start`, `stop`, `pause`, and `delete` containers. A container can be spun up from an image in milliseconds.
 *   **Isolation:** A container runs as a standard Linux process, but it is heavily isolated from the host machine and from other containers using Linux Kernel Namespaces and Control Groups (cgroups). It believes it is running on its own dedicated operating system.

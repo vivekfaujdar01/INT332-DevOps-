@@ -27,8 +27,8 @@ The concept of containerization or process isolation is not new and has been evo
 
 While the foundational technologies existed, they were often complex to configure and manage. The modern containerization era began when these underlying technologies were made accessible and user-friendly.
 
-- **Docker (2013):** Docker is largely responsible for popularizing modern containerization. It initially built upon LXC but later developed its own runtime (containerd). Docker introduced several key innovations:
-  - **Docker Images:** A standardized, layered format for packaging applications and their dependencies.
+- **Docker (2013):** Docker is a containerization platform that allows developers to package an application and its dependencies into lightweight, portable containers that run consistently across different computing environments. It is largely responsible for popularizing modern containerization. It initially built upon LXC but later developed its own runtime (containerd). Docker introduced several key innovations:
+  - **Docker Images:** A Docker image is a read-only, executable software package that contains all the files, libraries, dependencies, and configuration required to run an application inside a container. It serves as the template from which containers are created.
   - **Docker Engine:** A simple REST api and CLI to interact with containers.
   - **Docker Hub:** A centralized registry for sharing container images.
   Docker made it incredibly easy for developers to package an application on their laptop and run it anywhere.
