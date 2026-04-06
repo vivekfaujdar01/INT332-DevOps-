@@ -2,6 +2,18 @@
 
 Containers have revolutionized the way software is developed, deployed, and managed. They provide a lightweight, consistent, and portable environment for applications to run, ensuring that software behaves the same way regardless of where it is deployed.
 
+## What are Containers?
+
+A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. It is essentially an abstraction at the app layer that packages code and dependencies together.
+
+Unlike traditional virtual machines (VMs) that run a full copy of an operating system, including the kernel, containers share the host machine's OS kernel. This sharing makes them extremely lightweight, allowing them to start almost instantly and use a fraction of the memory that VMs require.
+
+Key characteristics of containers include:
+- **Lightweight:** Because they don't require their own entire guest operating system, they consume fewer resources.
+- **Portable:** A container bundles everything it needs to run, meaning it can be deployed consistently across any environment (development, staging, production, or different cloud providers) that supports the container runtime.
+- **Isolated:** Containers isolate software from its environment and from other containers, providing a secure and predictable execution space. This prevents conflicting dependencies between different applications.
+- **Scalable:** Due to their small footprint and fast startup times, containers allow for rapid scaling up or down to meet fluctuating demands.
+
 ## Origin of Containers
 
 The concept of containerization or process isolation is not new and has been evolving over several decades:
